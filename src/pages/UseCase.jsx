@@ -9,7 +9,7 @@ function UseCases() {
             Microgrids in Rural Areas
           </h2>
           <img
-            src="/placeholder.svg?height=200&width=400"
+            src="src/assets/img/Microgrids in Rural Areas.jpg"
             alt="Rural microgrid"
             className="w-full h-auto rounded-lg mb-4"
           />
@@ -25,7 +25,7 @@ function UseCases() {
             Government Collaboration
           </h2>
           <img
-            src="/placeholder.svg?height=200&width=400"
+            src="src/assets/img/Government Collaboration.jpg"
             alt="Government collaboration"
             className="w-full h-auto rounded-lg mb-4"
           />

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Impact() {
   return (
     <div className="container mx-auto px-4 py-12">
@@ -13,21 +15,56 @@ function Impact() {
           modern energy for all.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-2">Carbon Reduction</h3>
-            <p className="text-4xl font-bold text-green-600">500K</p>
-            <p>Tons of CO2 emissions avoided</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-2">Cost Savings</h3>
-            <p className="text-4xl font-bold text-green-600">$100M</p>
-            <p>Total cost savings for users</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-2">Renewable Capacity</h3>
-            <p className="text-4xl font-bold text-green-600">2 GW</p>
-            <p>New renewable energy capacity planned</p>
-          </div>
+          {/* Carbon Reduction Card */}
+          <Link
+            to="/Carbon Reduction"
+            className="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+          >
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Carbon Reduction</h3>
+              <img
+                src="src/assets/img/Carbon Reduction.jpg"
+                alt="Carbon Reduction"
+                className="w-full h-auto rounded-lg mb-4"
+              />
+              <p className="text-4xl font-bold text-green-600">500K</p>
+              <p>Tons of CO2 emissions avoided</p>
+            </div>
+          </Link>
+
+          {/* Cost Savings Card */}
+          <Link
+            to="/Smart Site Selection"
+            className="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+          >
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Cost Savings</h3>
+              <img
+                src="src/assets/img/Cost Savings.jpg"
+                alt="Cost Savings"
+                className="w-full h-auto rounded-lg mb-4"
+              />
+              <p className="text-4xl font-bold text-green-600">$100M</p>
+              <p>Total cost savings for users</p>
+            </div>
+          </Link>
+
+          {/* Renewable Capacity Card */}
+          <Link
+            to="/Smart Site Selection"
+            className="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+          >
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Renewable Capacity</h3>
+              <img
+                src="src/assets/img/Renewable Capacity.jpg"
+                alt="Renewable Capacity"
+                className="w-full h-auto rounded-lg mb-4"
+              />
+              <p className="text-4xl font-bold text-green-600">2 GW</p>
+              <p>New renewable energy capacity planned</p>
+            </div>
+          </Link>
         </div>
       </section>
     </div>
