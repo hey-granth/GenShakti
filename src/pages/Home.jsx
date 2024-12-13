@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import ClickableSlider from "./ClickableSlider";
 
 function Home() {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="relative isolate px-6 pt-14 lg:px-8">
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <div className="mx-auto max-w-2xl py-20 sm:py-24 lg:py-28">
           <div className="text-center">
             <h1 className="text-5xl font-semibold tracking-tight text-green-700 sm:text-7xl">
               A Future Built on Renewable Energy
@@ -14,22 +15,22 @@ function Home() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
-                href="#"
+                href="/smart site selection"
                 className="rounded-md bg-green-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500"
               >
                 Smart Site Selection
               </a>
               <a
-                href="#"
-                className="rounded-md bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500"
+                href="/Carbon Modeling"
+                className="rounded-md bg-green-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-600"
               >
                 Carbon Modeling
               </a>
               <a
-                href="#"
-                className="rounded-md bg-teal-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500"
+                href="/Real time data integration"
+                className="rounded-md bg-green-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500"
               >
-                Real-Time Data Integration
+                Real Time Data Integration
               </a>
             </div>
           </div>
@@ -80,7 +81,7 @@ function Home() {
               renewable energy efficiently and effectively.
             </p>
             <Link
-              to="/about"
+              to="/about us"
               className="text-green-600 font-bold hover:underline"
             >
               Learn More About Us
@@ -106,32 +107,45 @@ function Home() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-4">Smart Site Selection</h3>
-            <img
-              src="src/assets/img/Optimal Site Identification.avif"
-              alt="Optimal Site Identification"
-              className="w-full h-auto rounded-lg mb-4"
-            />
-            <p>
-              Identify optimal locations for renewable energy projects using
-              AI-driven analysis.
-            </p>
+            <Link
+              to="/smart site selection"
+              
+            >
+              <h3 className="text-xl font-semibold mb-4">
+                Smart Site Selection
+              </h3>
+              <img
+                src="src/assets/img/Optimal Site Identification.avif"
+                alt="Optimal Site Identification"
+                className="w-full h-auto rounded-lg mb-4"
+              />
+              <p>
+                Identify optimal locations for renewable energy projects using
+                AI-driven analysis.
+              </p>
+            </Link>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-4">Carbon Modeling</h3>
-            <img
-              src="src/assets/img/Carbon Modeling.jpg"
-              alt="Carbon Modeling"
-              className="w-full h-auto rounded-lg mb-4"
-            />
-            <p>
-              Simulate and reduce carbon emissions with advanced predictive
-              modeling.
-            </p>
+            <Link
+              to="/carbon modeling"
+              
+            >
+              <h3 className="text-xl font-semibold mb-4">Carbon Modeling</h3>
+              <img
+                src="src/assets/img/Carbon Modeling.jpg"
+                alt="Carbon Modeling"
+                className="w-full h-auto rounded-lg mb-4"
+              />
+              <p>
+                Simulate and reduce carbon emissions with advanced predictive
+                modeling.
+              </p>
+            </Link>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md">
+            <Link to="/real time data integration" >
             <h3 className="text-xl font-semibold mb-4">
-              Real-Time Data Integration
+              Real Time Data Integration
             </h3>
             <img
               src="src/assets/img/Real-Time Data Integration.jpg"
@@ -142,6 +156,7 @@ function Home() {
               Monitor and analyze live data for better energy planning and
               management.
             </p>
+            </Link>
           </div>
         </div>
       </section>
@@ -188,11 +203,10 @@ function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* add code here up */}
       <br />
       {/* or Dynamic Energy Potential Map */}
-
 
       {/* <section className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center">
@@ -206,6 +220,8 @@ function Home() {
           />
         </div>
       </section> */}
+      <br />
+      <ClickableSlider />
     </div>
   );
 }

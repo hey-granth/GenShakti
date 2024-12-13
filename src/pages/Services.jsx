@@ -23,7 +23,7 @@ function Services() {
           </p>
           <div className="flex justify-center mt-4">
             <Link
-              to="/Smart Site Selection"
+              to="/smart site selection"
               className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
             >
               Smart Site Selection
@@ -57,9 +57,9 @@ function Services() {
 
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-4">
-            Real-Time Data Integration
+            Real Time Data Integration
           </h2>
-          <Link to="/Real-Time Data Integration">
+          <Link to="/Real time data integration">
             <img
               src="src/assets/img/Real-Time Data Integration.jpg"
               alt="Real-Time Data Integration"
@@ -73,10 +73,10 @@ function Services() {
           </p>
           <div className="flex justify-center mt-4">
             <Link
-              to="/Real-Time Data Integration"
+              to="/Real Time Data Integration"
               className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
             >
-              Real-Time Data Integration
+              Real Time Data Integration
             </Link>
           </div>
         </div>

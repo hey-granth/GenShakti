@@ -5,7 +5,7 @@ function Header() {
     <header className="bg-white shadow-md">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link to="/" className="text-2xl font-bold text-green-600">
-          GENSHAKTI
+          GENSHAKTI 🍃
         </Link>
         <nav>
           <ul className="flex space-x-6">

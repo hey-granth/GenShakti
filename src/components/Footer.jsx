@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Instagram, Twitter, Linkedin, Mail, Phone } from "lucide-react";
 
 
 function Footer() {
@@ -42,12 +43,22 @@ function Footer() {
               </li>
             </ul>
           </div>
-          <div className="w-full md:w-1/3">
+          <div className="w-full md:w-1/3 space-y-2">
             <h4 className="text-lg font-semibold mb-2">Contact</h4>
-            <p className="text-sm">Email: info@genshakti.com</p>
-            <p className="text-sm">Phone: +1 (123) 456-7890</p>
-            <p className="text-sm">Phone: +1 (123) 456-79980</p>
-
+            <div className="text-sm flex items-center space-x-2">
+              <Mail className="text-base" />
+              <span>info@genshakti.com</span>
+            </div>
+            <div className="text-sm flex items-center space-x-2">
+              <Phone className="text-base" />
+              <span> +91 9044789562</span>
+            </div>
+            
+            <div className="flex space-x-4 mt-2">
+              <Instagram className="text-base" />
+              <Twitter className="text-base" />
+              <Linkedin className="text-base" />
+            </div>
           </div>
         </div>
         <div className="mt-8 text-center text-sm">
