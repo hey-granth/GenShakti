@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/home";
@@ -11,7 +12,26 @@ import SmartSiteSelection from "./pages/Smart Site Selection";
 import CarbonModeling from "./pages/Carbon Modeling"; 
 import RealTimeDataIntegration from "./pages/Real Time Data Integration"; 
 
+
 function App() {
+   useEffect(() => {
+     // Load Botsonic widget script dynamically
+     const script = document.createElement("script");
+     script.src = "https://widget.botsonic.com/CDN/botsonic.min.js";
+     script.async = true;
+     script.onload = () => {
+       window.Botsonic("init", {
+         serviceBaseUrl: "https://api-azure.botsonic.ai",
+         token: "b1a1d91d-6299-4309-b66e-21c3f2924436",
+       });
+     };
+     document.body.appendChild(script);
+
+     // Cleanup to remove the script when the component unmounts
+     return () => {
+       document.body.removeChild(script);
+     };
+   }, []);
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
