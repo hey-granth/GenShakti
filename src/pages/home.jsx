@@ -12,14 +12,14 @@ function Home() {
               {/* Text Content */}
               <div>
                 <div className="text-center lg:text-left">
-                  <h1 className="text-5xl font-bold tracking-tight text-green-700 sm:text-7xl">
+                  <h1 className="text-5xl font-bold tracking-tight text-green-700 sm:text-6xl">
                     A Future Built on Renewable Energy
                   </h1>
                   <p className="mt-6 text-lg font-medium text-gray-700 sm:text-xl">
                     Harness the power of AI for sustainable energy planning
                   </p>
                   {/* Action Buttons */}
-                  <div className="mt-10 flex flex-col gap-y-4 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
+                  <div className="mt-10  flex gap-5 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
                     <a
                       href="/smart site selection"
                       className="inline-flex px-6 py-3 text-sm font-bold text-white transition-all duration-200 bg-green-600 rounded-lg focus:outline-none focus:bg-green-500 hover:bg-green-700"
@@ -57,13 +57,17 @@ function Home() {
         </section>
 
         {/* Free Card and Metrics Section */}
-        <section className="pt-12 pb-12 sm:pb-16 lg:pt-8">
-          <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div className="grid max-w-lg grid-cols-1 mx-auto lg:max-w-full lg:items-center lg:grid-cols-2 gap-y-12 lg:gap-x-16">
+        <section className="p-4 sm:pb-16 lg:pt-8 flex items-center justify-center">
+          <div className="px-80 w-full flex items-center justify-center">
+            <div className="w-full ">
               {/* Subscription Form */}
               <div>
                 <div className="text-center lg:text-left">
-                  <form action="/ClickableSlider" method="POST" className="mt-8 sm:mt-10">
+                  <form
+                    action="/ClickableSlider"
+                    method="POST"
+                    className="mt-8 sm:mt-10"
+                  >
                     <div className="relative p-2 sm:border sm:border-gray-400 group sm:rounded-xl sm:focus-within:ring-1 sm:focus-within:ring-gray-900 sm:focus-within:border-gray-900">
                       <input
                         type="email"
@@ -93,7 +97,7 @@ function Home() {
                       1.2k+
                     </p>
                     <p className="ml-3 text-sm text-gray-900">
-                      Locations 
+                      Locations
                       <br />
                       optimized 🗺️
                     </p>
@@ -216,7 +220,7 @@ function Home() {
           </Link>
         </div>
       </section> */}
-      <section className="py-20 bg-white">
+      <section className="p-20 bg-white">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl font-bold mb-6">
@@ -253,7 +257,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="mb-16">
+      <section className="mb-16 px-20">
         <h2 className="text-3xl font-bold mb-8 text-center">
           Our Key Features
         </h2>

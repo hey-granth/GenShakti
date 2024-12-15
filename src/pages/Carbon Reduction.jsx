@@ -1,6 +1,6 @@
 import React from "react";
 
-const App = () => {
+const Carbonreduction = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-green-100">
       <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-md">
@@ -20,4 +20,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Carbonreduction;

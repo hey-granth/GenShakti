@@ -34,7 +34,7 @@ function Impact() {
 
           {/* Cost Savings Card */}
           <Link
-            to="/Smart Site Selection"
+            to="/Cost Saving"
             className="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
             <div>
@@ -51,7 +51,7 @@ function Impact() {
 
           {/* Renewable Capacity Card */}
           <Link
-            to="/Smart Site Selection"
+            to="/Renewable Capacity"
             className="block bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
             <div>

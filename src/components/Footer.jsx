@@ -4,7 +4,7 @@ import { Instagram, Twitter, Linkedin, Mail, Phone } from "lucide-react";
 
 function Footer() {
   return (
-    <footer className="bg-green-600 text-white py-8">
+    <footer className="bg-green-600 text-white py-8 px-20">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-between">
           <div className="w-full md:w-1/3 mb-6 md:mb-0">

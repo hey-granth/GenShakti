@@ -6,8 +6,10 @@ const About = () => {
       <div className="container mx-auto px-6 lg:px-16">
         <div className="text-center">
           <h1 className="text-5xl font-bold text-green-700 mb-6 animate-fade-in-up">
-            About Us - <br /> <br />The GenShakti Team 🍃
+            <span className="underline">About Us</span> <br /> <br />
+            The GenShakti Team 🍃
           </h1>
+
           <p className="text-lg font-medium text-gray-700 leading-relaxed mb-6 animate-fade-in-up">
             We are <span className="italic">Team GenShakti</span>, a passionate
             group working to transform lives and protect nature by promoting

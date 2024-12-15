@@ -47,7 +47,6 @@ const ClickableSlider = () => {
     },
   ];
 
-
   useEffect(() => {
     const handleResize = () => {
       setSliderWidth(window.innerWidth);
@@ -107,7 +106,7 @@ const ClickableSlider = () => {
           return (
             <div
               key={index}
-              className="absolute w-96 bg-gradient-to-r from-green-700/45 via-green-500/45 to-transparent border border-double border-transparent rounded-3xl backdrop-blur-md transition-all duration-400 transform-gpu"
+              className="absolute w-96 aspect-[4/3] bg-gradient-to-r from-green-700/45 via-green-500/45 to-transparent border border-double border-transparent rounded-3xl backdrop-blur-md transition-all duration-400 transform-gpu"
               style={{
                 transform: positionStyles.transform,
                 zIndex: positionStyles.zIndex,
