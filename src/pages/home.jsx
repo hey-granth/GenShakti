@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import ClickableSlider from "./ClickableSlider";
+import heroImage from "/src/assets/img/hero.webp";
+
 
 function Home() {
   return (
@@ -48,7 +50,7 @@ function Home() {
               <div>
                 <img
                   className="w-full object-cover rounded-lg shadow-lg"
-                  src="src/assets/img/hero.webp"
+                  src={heroImage}
                   alt="Renewable Energy Illustration"
                 />
               </div>
