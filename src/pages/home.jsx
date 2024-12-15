@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import ClickableSlider from "./ClickableSlider";
 import heroImage from "/src/assets/img/hero.webp";
-
-
+import solarplant from "/src/assets/img/solar plant.jpg";
+import windturbines from "/src/assets/img/wind turbine.jpg";
+import OptimalSiteIdentification from "/src/assets/img/Optimal Site Identification.avif";
+import RealTimeDataIntegration from "/src/assets/img/Real-Time Data Integration.jpg";
+import CarbonModeling from "/src/assets/img/Carbon Modeling.jpg";
 function Home() {
   return (
     <div className="container mx-auto px-4 py-12">
@@ -247,12 +250,12 @@ function Home() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="src/assets/img/solar plant.jpg"
+              src={solarplant}
               alt="Solar panels installation"
               className="rounded-lg shadow-lg"
             />
             <img
-              src="src/assets/img/wind turbine.jpg"
+              src={windturbines}
               alt="Wind turbines"
               className="rounded-lg shadow-lg mt-8"
             />
@@ -270,8 +273,8 @@ function Home() {
                 Smart Site Selection
               </h3>
               <img
-                src="src/assets/img/Optimal Site Identification.avif"
-                alt="Optimal Site Identification"
+                src={OptimalSiteIdentification}
+                alt="OptimalSiteIdentification"
                 className="w-full h-auto rounded-lg mb-4"
               />
               <p>
@@ -284,7 +287,7 @@ function Home() {
             <Link to="/carbon modeling">
               <h3 className="text-xl font-semibold mb-4">Carbon Modeling</h3>
               <img
-                src="src/assets/img/Carbon Modeling.jpg"
+                src={CarbonModeling}
                 alt="Carbon Modeling"
                 className="w-full h-auto rounded-lg mb-4"
               />
@@ -300,7 +303,7 @@ function Home() {
                 Real Time Data Integration
               </h3>
               <img
-                src="src/assets/img/Real-Time Data Integration.jpg"
+                src={RealTimeDataIntegration}
                 alt="Real-Time Data Integration"
                 className="w-full h-auto rounded-lg mb-4"
               />
