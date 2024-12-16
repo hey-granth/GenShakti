@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import ClickableSlider from "./ClickableSlider";
 import heroImage from "/src/assets/img/hero.webp";
-import solarplant from "/src/assets/img/solar plant.jpg";
-import windturbines from "/src/assets/img/wind turbine.jpg";
-import OptimalSiteIdentification from "/src/assets/img/Optimal Site Identification.avif";
-import RealTimeDataIntegration from "/src/assets/img/Real-Time Data Integration.jpg";
-import CarbonModeling from "/src/assets/img/Carbon Modeling.jpg";
+import solarplant from "../assets/img/solar plant.jpg";
+import windturbines from "../assets/img/wind turbine.jpg";
+import OptimalSiteIdentification from "../assets/img/Optimal Site Identification.avif";
+import RealTimeDataIntegration from "../assets/img/Real-Time Data Integration.jpg";
+import CarbonModeling from "../assets/img/Carbon Modeling.jpg";
 function Home() {
   return (
     <div className="container mx-auto px-4 py-12">
