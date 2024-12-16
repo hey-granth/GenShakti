@@ -115,6 +115,14 @@ const RenewableEnergyDashboard = () => {
   });
   const [biomassData, setBiomassData] = useState({ production: [], map: [] });
   const [storageData, setStorageData] = useState({ demand: [], supply: [] });
+  const [aiRecommendations, setAiRecommendations] = useState({
+    solar: "",
+    wind: "",
+    hydro: "",
+    geothermal: "",
+    biomass: "",
+    storage: "",
+  });
 
   useEffect(() => {
     // Simulating data fetching
@@ -166,24 +174,110 @@ const RenewableEnergyDashboard = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // TODO: Implement AI recommendation generation
-  const getAIRecommendation = (energyType, data) => {
-    // This is a placeholder. Replace with actual AI-generated recommendations
-    const recommendations = {
-      solar:
-        "Based on the current solar irradiance data, we recommend increasing the tilt angle of solar panels in the northwestern region by 5 degrees to optimize energy capture.",
-      wind: "Our analysis suggests installing new wind turbines in the coastal areas marked in dark green on the map. These locations show consistently high wind speeds.",
-      hydro:
-        "The river in the central region shows high potential for a new hydropower plant. We recommend conducting an environmental impact study for a 50MW facility.",
-      geothermal:
-        "Recent geological surveys indicate a promising geothermal reservoir in the southeastern region. Consider initiating exploratory drilling in the areas marked dark green.",
-      biomass:
-        "To optimize biomass energy production, we suggest establishing a new collection center in the northeastern agricultural zone to reduce transportation costs.",
-      storage:
-        "Based on the current demand-supply gap, we recommend investing in a 100MWh battery storage facility near the main urban center to improve grid stability during peak hours.",
+  useEffect(() => {
+    const energyTypes = [
+      "solar",
+      "wind",
+      "hydro",
+      "geothermal",
+      "biomass",
+      "storage",
+    ];
+    let currentTypeIndex = 0;
+
+    const fetchRecommendations = async () => {
+      const energyType = energyTypes[currentTypeIndex];
+      let data = {};
+
+      switch (energyType) {
+        case "solar":
+          data = solarData;
+          break;
+        case "wind":
+          data = windData;
+          break;
+        case "hydro":
+          data = hydroData;
+          break;
+        case "geothermal":
+          data = geothermalData;
+          break;
+        case "biomass":
+          data = biomassData;
+          break;
+        case "storage":
+          data = storageData;
+          break;
+        default:
+          return;
+      }
+
+      try {
+        const recommendation = await getAIRecommendation(energyType, data);
+        setAiRecommendations((prev) => ({
+          ...prev,
+          [energyType]: recommendation,
+        }));
+      } catch (error) {
+        console.error(
+          `Failed to fetch recommendation for ${energyType}:`,
+          error
+        );
+      }
+
+      currentTypeIndex = (currentTypeIndex + 1) % energyTypes.length;
     };
 
-    return recommendations[energyType] || "No recommendation available.";
+    const interval = setInterval(fetchRecommendations, 2000); // Fetch recommendations every 2 seconds
+    return () => clearInterval(interval);
+  }, [
+    solarData,
+    windData,
+    hydroData,
+    geothermalData,
+    biomassData,
+    storageData,
+  ]);
+
+  const getAIRecommendation = async (energyType, data) => {
+    const apiKey = "AIzaSyBSXHhf3NbiahDw3VT5jzTdMgv9I-1Ctds";
+    const prompt = `Provide a recommendation for ${energyType} energy based on the following data. Limit the response to 27 words: ${JSON.stringify(
+      data
+    )}`;
+
+    try {
+      const response = await fetch(
+        "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=" +
+          apiKey,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [
+                  {
+                    text: prompt,
+                  },
+                ],
+              },
+            ],
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`API request failed with status ${response.status}`);
+      }
+
+      const result = await response.json();
+      return result.candidates[0].content.parts[0].text;
+    } catch (error) {
+      console.error("Error fetching AI recommendation:", error);
+      return "Failed to fetch recommendation.";
+    }
   };
 
   return (
@@ -196,35 +290,35 @@ const RenewableEnergyDashboard = () => {
           title="Solar Power Optimization"
           data={solarData.production}
           mapData={solarData.map}
-          aiRecommendation={getAIRecommendation("solar", solarData)}
+          aiRecommendation={aiRecommendations.solar}
         />
         <EnergySourceCard
           title="Wind Energy Potential"
           data={windData.production}
           mapData={windData.map}
-          aiRecommendation={getAIRecommendation("wind", windData)}
+          aiRecommendation={aiRecommendations.wind}
         />
         <EnergySourceCard
           title="Hydropower Feasibility"
           data={hydroData.production}
           mapData={hydroData.map}
-          aiRecommendation={getAIRecommendation("hydro", hydroData)}
+          aiRecommendation={aiRecommendations.hydro}
         />
         <EnergySourceCard
           title="Geothermal Energy Exploration"
           data={geothermalData.production}
           mapData={geothermalData.map}
-          aiRecommendation={getAIRecommendation("geothermal", geothermalData)}
+          aiRecommendation={aiRecommendations.geothermal}
         />
         <EnergySourceCard
           title="Biomass Energy Utilization"
           data={biomassData.production}
           mapData={biomassData.map}
-          aiRecommendation={getAIRecommendation("biomass", biomassData)}
+          aiRecommendation={aiRecommendations.biomass}
         />
         <EnergyStorageCard
           data={storageData}
-          recommendation={getAIRecommendation("storage", storageData)}
+          recommendation={aiRecommendations.storage}
         />
       </div>
     </div>

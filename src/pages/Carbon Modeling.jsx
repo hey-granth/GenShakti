@@ -345,7 +345,7 @@ const SustainableDashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 p-8">
       <h1 className="text-4xl font-bold text-green-800 mb-8">
-        Sustainable Development Dashboard
+        Carbon Modeling
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* Carbon Footprint Calculator */}
