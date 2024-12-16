@@ -6,7 +6,13 @@ import windturbines from "../assets/img/wind turbine.jpg";
 import OptimalSiteIdentification from "../assets/img/Optimal Site Identification.avif";
 import RealTimeDataIntegration from "../assets/img/Real-Time Data Integration.jpg";
 import CarbonModeling from "../assets/img/Carbon Modeling.jpg";
+
 function Home() {
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent the default form submission behavior
+    alert("Email submitted successfully!");
+  };
+
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="container mx-auto px-4 py-12">
@@ -68,11 +74,7 @@ function Home() {
               {/* Subscription Form */}
               <div>
                 <div className="text-center lg:text-left">
-                  <form
-                    action="/ClickableSlider"
-                    method="POST"
-                    className="mt-8 sm:mt-10"
-                  >
+                  <form onSubmit={handleSubmit} className="mt-8 sm:mt-10">
                     <div className="relative p-2 sm:border sm:border-gray-400 group sm:rounded-xl sm:focus-within:ring-1 sm:focus-within:ring-gray-900 sm:focus-within:border-gray-900">
                       <input
                         type="email"
@@ -86,7 +88,7 @@ function Home() {
                         <button
                           type="submit"
                           className="inline-flex px-6 py-3 text-lg font-bold text-white transition-all duration-200 bg-gray-900 rounded-lg focus:outline-none focus:bg-gray-600 hover:bg-gray-600"
-                          aria-label="Get a Free Card"
+                          aria-label="email"
                         >
                           Email📧
                         </button>
