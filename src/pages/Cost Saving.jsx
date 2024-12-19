@@ -21,6 +21,44 @@ ChartJS.register(
   Legend
 );
 
+const apiKey = "AIzaSyBSXHhf3NbiahDw3VT5jzTdMgv9I-1Ctds";
+
+const fetchAIRecommendation = async (prompt) => {
+  try {
+    const response = await fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=" +
+        apiKey,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [
+                {
+                  text: prompt,
+                },
+              ],
+            },
+          ],
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`API request failed with status ${response.status}`);
+    }
+
+    const result = await response.json();
+    return result.candidates[0].content.parts[0].text;
+  } catch (error) {
+    console.error("Error fetching AI recommendation:", error);
+    return "Failed to fetch recommendation.";
+  }
+};
+
 const PersonalizedEnergyReport = ({
   userInput,
   report,
@@ -39,7 +77,7 @@ const PersonalizedEnergyReport = ({
               htmlFor="monthlyBill"
               className="block text-sm font-medium text-gray-700"
             >
-              Average Monthly Electricity Bill ($)
+              Average Monthly Electricity Bill (₹)
             </label>
             <input
               type="number"
@@ -156,7 +194,7 @@ const AIInvestmentPlanning = ({ plan }) => {
       <div className="grid grid-cols-2 gap-4 text-sm">
         <div>
           <p>
-            <strong>Initial Investment:</strong> $
+            <strong>Initial Investment:</strong>₹
             {plan.initialInvestment.toFixed(2)}
           </p>
           <p>
@@ -239,17 +277,21 @@ const RenewableEnergyCostDashboard = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    generatePersonalizedReport(userInput);
+    await generatePersonalizedReport(userInput);
   };
 
-  const generatePersonalizedReport = (input) => {
-    // TODO: Replace with actual API call to generate personalized report
+  const generatePersonalizedReport = async (input) => {
+    const prompt = `Generate a personalized energy report for a home with a monthly electricity bill of 
+₹ ${input.monthlyBill}, a size of ${input.homeSize} sq ft, located in ${input.location}. in short in 56 words`;
+
+    const recommendation = await fetchAIRecommendation(prompt);
+
     setPersonalizedReport({
       costSavings: input.monthlyBill * 12 * 0.3, // Assume 30% savings
       co2Reduction: input.homeSize * 0.01, // Simplified calculation
-      recommendation: `Based on your ${input.homeSize} sq ft home in ${input.location}, we recommend installing a 5kW solar panel system.`,
+      recommendation: recommendation,
       nextSteps: [
         "Get a professional solar assessment",
         "Compare quotes from certified installers",
@@ -259,15 +301,19 @@ const RenewableEnergyCostDashboard = () => {
   };
 
   useEffect(() => {
-    // Simulating data fetching and AI-generated content
     const fetchData = async () => {
       try {
-        // TODO: Replace with actual API calls and AI-generated content
         const years = Array.from({ length: 10 }, (_, i) => 2024 + i);
+
+        const investmentPrompt =
+          "Generate a phased solar installation plan optimized for energy needs and budget in points can keep it short and remove *.";
+        const investmentRecommendation = await fetchAIRecommendation(
+          investmentPrompt
+        );
+
         setInvestmentPlan({
           name: "Phased Solar Installation",
-          description:
-            "A 3-phase solar panel installation plan optimized for your energy needs and budget.",
+          description: investmentRecommendation,
           years: years,
           cumulativeSavings: years.map((_, i) =>
             Math.floor(Math.random() * 5000 * (i + 1))
@@ -330,7 +376,6 @@ const RenewableEnergyCostDashboard = () => {
         ]);
       } catch (error) {
         console.error("Error fetching data:", error);
-        // TODO: Handle errors appropriately
       }
     };
 
