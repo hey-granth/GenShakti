@@ -14,6 +14,7 @@ import RealTimeDataIntegration from "./pages/Real Time Data Integration";
 import Carbonreduction from "./pages/Carbon Reduction";
 import Renewablecapacity from "./pages/Renewable Capacity";
 import Costsaving from "./pages/Cost Saving";
+import Roadmap from "./pages/Roadmap"
 
 
 
@@ -57,6 +58,7 @@ function App() {
             <Route path="/carbon reduction" element={<Carbonreduction />} />
             <Route path="/renewable capacity" element={<Renewablecapacity />} />
             <Route path="/cost saving" element={<Costsaving />} />
+            <Route path="/roadmap" element={<Roadmap />} />
 
             
           </Routes>

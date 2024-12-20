@@ -39,11 +39,11 @@ function Home() {
                       Smart Site Selection
                     </a>
                     <a
-                      href="/carbon modeling"
+                      href="/roadmap"
                       className="inline-flex px-6 py-3 text-sm font-bold text-white transition-all duration-200 bg-green-500 rounded-lg focus:outline-none focus:bg-green-600 hover:bg-green-700"
                       aria-label="Navigate to Carbon Modeling"
                     >
-                      Carbon Modeling
+                      Road Map
                     </a>
                     {/* <a
                       href="/real-time-data-integration"
