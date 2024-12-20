@@ -62,7 +62,7 @@ const EnergySourceCard = ({ title, data, mapData, aiRecommendation }) => {
           options={{ responsive: true }}
         />
       </div>
-      <SimpleMap data={mapData} title={`${title} Potential Map`} />
+      {/* <SimpleMap data={mapData} title={`${title} Potential Map`} /> */}
       <div className="mt-4 p-3 bg-green-100 rounded-lg">
         <h4 className="font-semibold mb-2">AI Recommendation:</h4>
         <p className="text-sm">{aiRecommendation}</p>
