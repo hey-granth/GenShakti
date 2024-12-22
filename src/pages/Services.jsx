@@ -8,7 +8,7 @@ function Services() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-4">Smart Site Selection</h2>
-          <Link to="/Smart Site Selection">
+          <Link to="/site">
             <img
               src="src/assets/img/Optimal Site Identification.avif"
               alt="Optimal Site Identification"
@@ -23,7 +23,7 @@ function Services() {
           </p>
           <div className="flex justify-center mt-4">
             <Link
-              to="/smart site selection"
+              to="/site"
               className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
             >
               Smart Site Selection
