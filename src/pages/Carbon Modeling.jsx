@@ -15,6 +15,8 @@ import {
   Line,
 } from "recharts";
 
+import SustainableSuggestions from "./Sustainable-Suggestions";
+
 const SustainableDashboard = () => {
   // Carbon Footprint Calculator State
   const [activities, setActivities] = useState({
@@ -419,70 +421,7 @@ const SustainableDashboard = () => {
           </ResponsiveContainer>
         </div>
 
-        {/* Sustainable Suggestions */}
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-semibold text-green-700 mb-4">
-            Sustainable Suggestions
-          </h2>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Transportation Preference
-            </label>
-            <select
-              name="transportation"
-              value={userPreferences.transportation}
-              onChange={handlePreferenceChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
-            >
-              <option value="">Select...</option>
-              <option value="car">Car</option>
-              <option value="public">Public Transport</option>
-              <option value="bike">Bicycle</option>
-            </select>
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Energy Consumption
-            </label>
-            <select
-              name="energy"
-              value={userPreferences.energy}
-              onChange={handlePreferenceChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
-            >
-              <option value="">Select...</option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Waste Generation
-            </label>
-            <select
-              name="waste"
-              value={userPreferences.waste}
-              onChange={handlePreferenceChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
-            >
-              <option value="">Select...</option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-          </div>
-          <div className="mt-6">
-            <h3 className="text-lg font-semibold text-green-600 mb-2">
-              Personalized Suggestions:
-            </h3>
-            <ul className="list-disc pl-5 space-y-2">
-              {Object.values(generateSuggestions()).map((suggestion, index) => (
-                <li key={index}>{suggestion}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <SustainableSuggestions />
 
         {/* Impact Forecasting */}
         <div className="bg-white p-6 rounded-lg shadow-lg">

@@ -9,7 +9,7 @@ import CarbonModeling from "../assets/img/Carbon Modeling.jpg";
 
 function Home() {
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent the default form submission behavior
+    event.preventDefault();
     alert("Email submitted successfully!");
   };
 
@@ -32,7 +32,7 @@ function Home() {
                   {/* Action Buttons */}
                   <div className="mt-10  flex gap-5 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
                     <a
-                      href="/smart site selection"
+                      href="/site"
                       className="inline-flex px-6 py-3 text-sm font-bold text-white transition-all duration-200 bg-green-600 rounded-lg focus:outline-none focus:bg-green-500 hover:bg-green-700"
                       aria-label="Navigate to Smart Site Selection"
                     >

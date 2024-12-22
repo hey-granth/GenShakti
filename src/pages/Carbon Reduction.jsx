@@ -222,28 +222,58 @@ const PersonalizedRecommendations = () => {
     },
   ]);
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!input.trim()) return;
 
     // Add user message
     setMessages((prev) => [...prev, { text: input, isBot: false }]);
+    setLoading(true);
 
-    // TODO: Integrate with AI API here
-    // const response = await fetchAIResponse(input)
-    // setMessages(prev => [...prev, { text: response, isBot: true }])
+    try {
+      const prompt = input;
 
-    // Placeholder bot response
-    setTimeout(() => {
+      const chatCompletion = await client.chatCompletion({
+        model: "mistralai/Mistral-Nemo-Instruct-2407",
+        messages: [
+          {
+            role: "user",
+            content: prompt,
+          },
+        ],
+        max_tokens: 500,
+      });
+
+      const generatedText = chatCompletion.choices[0].message.content;
+      const points = generatedText
+        .split("\n")
+        .filter((point) => point.trim() !== "");
+
+      const boldedPoints = points.map((point) =>
+        point.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      );
+
       setMessages((prev) => [
         ...prev,
         {
-          text: "Thank you for your question. Here's a tip: Consider using public transportation or carpooling to reduce your carbon emissions from daily commutes.",
+          text: boldedPoints.join("\n"),
           isBot: true,
         },
       ]);
-    }, 1000);
+    } catch (error) {
+      console.error("Error generating text:", error);
+      setMessages((prev) => [
+        ...prev,
+        {
+          text: "Error generating text. Please try again.",
+          isBot: true,
+        },
+      ]);
+    } finally {
+      setLoading(false);
+    }
 
     setInput("");
   };
@@ -274,9 +304,14 @@ const PersonalizedRecommendations = () => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask for sustainability tips..."
           className="flex-grow p-2 border rounded-l"
+          disabled={loading}
         />
-        <button type="submit" className="bg-green-500 text-white p-2 rounded-r">
-          Send
+        <button
+          type="submit"
+          className="bg-green-500 text-white p-2 rounded-r"
+          disabled={loading}
+        >
+          {loading ? "Generating..." : "Send"}
         </button>
       </form>
     </div>

@@ -237,8 +237,12 @@ const EducationalContent = ({ content }) => {
 };
 
 const IncentiveRecommendations = ({ incentives }) => {
+  const boldedPoints = incentives.map((incentive) =>
+    incentive.description.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+  );
+
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
+    <div className="bg-white p-6 rounded-lg shadow-lg h-[650px] overflow-auto">
       <h2 className="text-2xl font-bold mb-4 text-green-700">
         Available Incentives and Subsidies
       </h2>
@@ -246,7 +250,10 @@ const IncentiveRecommendations = ({ incentives }) => {
         {incentives.map((incentive, index) => (
           <div key={index} className="border p-4 rounded">
             <h3 className="font-bold">{incentive.name}</h3>
-            <p className="mb-2">{incentive.description}</p>
+            <p
+              className="mb-2"
+              dangerouslySetInnerHTML={{ __html: boldedPoints[index] }}
+            ></p>
             <p>
               <strong>Potential Savings:</strong> $
               {incentive.potentialSavings.toFixed(2)}
@@ -283,7 +290,7 @@ const RenewableEnergyCostDashboard = () => {
   };
 
   const generatePersonalizedReport = async (input) => {
-    const prompt = `Generate a personalized energy report for a home with a monthly electricity bill of 
+    const prompt = `Generate a personalized energy report for a home with a monthly electricity bill of
 ₹ ${input.monthlyBill}, a size of ${input.homeSize} sq ft, located in ${input.location}. in short in 56 words`;
 
     const recommendation = await fetchAIRecommendation(prompt);
