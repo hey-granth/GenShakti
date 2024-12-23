@@ -19,6 +19,8 @@ import SustainableSuggestions from "./pages/Sustainable-Suggestions";
 import AiGenerator from "./pages/test";
 import MapComponent from "./pages/map";
 import SiteSelection from "./pages/siteSelection";
+import Test from "./pages/test";
+import Flow from "./pages/flow";
 
 function App() {
   useEffect(() => {
@@ -71,6 +73,8 @@ function App() {
             <Route path="/site" element={<SiteSelection />} />
             <Route path="/ai-generator" element={<AiGenerator />} />
             <Route path="/map" element={<MapComponent />} />
+            <Route path="/test" element={<Test />} />
+            <Route path="/flow" element={<Flow />} />
           </Routes>
         </main>
         <Footer />
