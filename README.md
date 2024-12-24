@@ -54,4 +54,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 🌟 **Star this repository** if you support sustainable development!  
 
-Thanking CodeChef ABESec for organizing events that support innovation and also a bif thants to Bluerock collaboration.
+## 🤝 Acknowledgments  
+
+A big thank you to **[CodeChef ABESec](https://github.com/ABES-CodeChef)** for organizing events that inspire innovation and collaboration.  
+Special thanks to **[Blurock Collaboration](https://github.com/blurockionic)** for their support and contributions to this initiative.  
+
