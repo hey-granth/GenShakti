@@ -23,24 +23,24 @@ import Test from "./pages/test";
 import Flow from "./pages/flow";
 
 function App() {
-  useEffect(() => {
-    // Load Botsonic widget script dynamically
-    const script = document.createElement("script");
-    script.src = "https://widget.botsonic.com/CDN/botsonic.min.js";
-    script.async = true;
-    script.onload = () => {
-      window.Botsonic("init", {
-        serviceBaseUrl: "https://api-azure.botsonic.ai",
-        token: "b1a1d91d-6299-4309-b66e-21c3f2924436",
-      });
-    };
-    document.body.appendChild(script);
+  // useEffect(() => {
+  //   // Load Botsonic widget script dynamically
+  //   const script = document.createElement("script");
+  //   script.src = "https://widget.botsonic.com/CDN/botsonic.min.js";
+  //   script.async = true;
+  //   script.onload = () => {
+  //     window.Botsonic("init", {
+  //       serviceBaseUrl: "https://api-azure.botsonic.ai",
+  //       token: "b1a1d91d-6299-4309-b66e-21c3f2924436",
+  //     });
+  //   };
+  //   document.body.appendChild(script);
 
-    // Cleanup to remove the script when the component unmounts
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  //   // Cleanup to remove the script when the component unmounts
+  //   return () => {
+  //     document.body.removeChild(script);
+  //   };
+  // }, []);
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
